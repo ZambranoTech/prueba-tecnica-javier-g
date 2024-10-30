@@ -95,13 +95,13 @@ export const loginUser = async (user) => {
   }
 };
 
-export const editUser = async (user) => {
+export const editUser = async (user, newUser) => {
   try {
     await connectDB();
 
     const result = await UserModel.findOneAndUpdate(
       { email: user.email },
-      { ...user },
+      { ...newUser },
       { new: true }
     );
 

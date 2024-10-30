@@ -52,7 +52,8 @@ export default function DialogUser() {
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     const { username, email } = data;
-    const user = { username, email };
+
+    const newUser = { username, email };
     let res = {
       success: false,
       error: "",
@@ -60,7 +61,7 @@ export default function DialogUser() {
     };
     try {
       if (formMode === 2) {
-        res = await editUser(user);
+        res = await editUser(user, newUser);
       } else if (formMode === 1) {
         res = await saveUser({
           ...user,
