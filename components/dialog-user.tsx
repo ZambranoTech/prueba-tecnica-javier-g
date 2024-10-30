@@ -64,7 +64,7 @@ export default function DialogUser() {
         res = await editUser(user, newUser);
       } else if (formMode === 1) {
         res = await saveUser({
-          ...user,
+          ...newUser,
           password: "usuario",
         });
       }
